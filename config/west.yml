@@ -10,6 +10,8 @@ manifest:
       url-base: https://github.com/urob
     - name: janpfischer
       url-base: https://github.com/janpfischer
+    - name: kot149
+      url-base: https://github.com/kot149
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -33,5 +35,8 @@ manifest:
     #  remote: janpfischer
     #  revision: main
     #  clone-depth: 1
+    - name: zmk-layout-shift
+      remote: kot149
+      revision: v2
   self:
     path: config
