@@ -6,9 +6,6 @@
 
 #include "zmk-helpers/helper.h"
 #include "includes/cornix54.h"
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/keys.h>
 
 // tap windows for ctl alt and gui
 
@@ -36,11 +33,7 @@
 #define KEYS_T LH1 LH0 RH0 RH1
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 15
 
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/ext_power.h>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/pointing.h>
+&sl { release-after-ms = <250>; };
 
 / {
     // Activate ADJUST layer by pressing raise and lower
@@ -179,6 +172,15 @@
         };
     };
 
+    macros {
+        eager_tap_dance: eager_tap_dance {
+            compatible = "zmk,behavior-macro-two-param";
+            #binding-cells = <2>;
+            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &macro_param_2to1 &sl MACRO_PLACEHOLDER>;
+            label = "EAGER_TAP_DANCE";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -193,11 +195,12 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp TAB  &kp Q          &kp W         &kp E         &kp R                &kp T                      &kp Y      &kp U                &kp I            &kp O         &kp P             &kp BSLH
-&kp ESC  &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G                      &kp H      &hm_shift_r RSHFT J  &hm_r RGUI K     &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT
-&mo 4    &hm_l LGUI Z   &kp X         &kp C         &kp V                &kp B        &none  &none  &kp N      &kp M                &kp COMMA        &kp DOT       &kp FSLH          &kp BACKSPACE
-&none    &none          &none         &lt 6 ESCAPE  &mo 2                &lt 5 SPACE                &kp ENTER  &mo 3                &lt 2 BACKSPACE  &none         &none             &none
+&kp ESCAPE        &kp Q  &kp W  &kp E  &kp R      &kp T                  &kp Y      &kp U                          &kp I               &kp O             &kp P             &kp BSLH
+&kp LEFT_CONTROL  &kp A  &kp S  &kp D  &kp LSHFT  &kp G                  &kp H      &kp J                          &kp K               &kp L             &hm_r RCTRL SEMI  &kp SQT
+&kp LEFT_COMMAND  &kp Z  &kp X  &kp C  &kp V      &kp B    &none  &to 7  &kp N      &kp M                          &comma_exclamation  &period_question  &kp FSLH          &kp BACKSPACE
+&kp LEFT_ALT      &none  &none  &mo 3  &mo 2      &kp TAB                &kp SPACE  &eager_tap_dance LANGUAGE_2 1  &none               &none             &none             &none
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
@@ -212,11 +215,12 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&trans    &trans         &trans        &trans         &trans               &trans                  &trans  &trans               &trans         &trans        &trans            &trans
-&trans    &hm_l LCTRL A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &trans                  &trans  &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RCTRL SEMI  &trans
-&kp LGUI  &trans         &trans        &trans         &trans               &trans  &trans  &trans  &trans  &trans               &trans         &trans        &trans            &trans
-&none     &none          &none         &trans         &trans               &trans                  &trans  &trans               &trans         &none         &none             &none
+&trans    &trans         &trans        &trans         &trans               &trans                  &trans  &trans                         &trans         &trans        &trans            &trans
+&trans    &hm_l LCTRL A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &trans                  &trans  &hm_shift_r RSHFT J            &hm_r RCTRL K  &hm_r RALT L  &hm_r RCTRL SEMI  &trans
+&kp LGUI  &trans         &trans        &trans         &trans               &trans  &trans  &trans  &trans  &trans                         &trans         &trans        &trans            &trans
+&none     &none          &none         &trans         &trans               &trans                  &trans  &eager_tap_dance LANGUAGE_1 1  &trans         &none         &none             &none
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
@@ -237,6 +241,7 @@
 &none  &none     &kp RBKT  &kp RPAR  &kp PIPE  &kp BSLH   &trans  &trans  &kp FSLH   &kp QUESTION  &kp GRAVE  &kp TILDE  &kp SQT   &none
 &none  &none     &none     &none     &trans    &trans                     &kp TILDE  &trans        &kp GRAVE  &none      &none     &none
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
@@ -256,6 +261,7 @@
 &trans  &kp N6  &kp N7  &kp N8   &kp N9  &kp N0         &trans  &trans  &kp TAB   &kp INS    &kp HOME   &kp END   &trans   &trans
 &none   &none   &none   &kp TAB  &trans  &kp BACKSPACE                  &trans    &trans     &kp N3     &none     &none    &none
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
@@ -308,28 +314,35 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &none        &none  &none   &none  &none  &none
-&none       &none         &none         &none         &none         &none                         &none        &none  &none   &none  &none  &none
-&none       &none         &none         &none         &none         &bootloader   &trans  &trans  &bootloader  &none  &none   &none  &none  &none
-&none       &none         &none         &none         &none         &none                         &none        &none  &kp N7  &none  &none  &none
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                 &none        &none  &none   &none  &none  &none
+&none       &none         &none         &none         &none         &none                        &none        &none  &none   &none  &none  &none
+&none       &none         &none         &none         &none         &bootloader   &trans  &to 0  &bootloader  &none  &none   &none  &none  &none
+&none       &none         &none         &none         &none         &none                        &tog_ls      &none  &kp N7  &none  &none  &none
             >;
         };
     };
 };
 
 #include <layout_shift_kp_override.dtsi>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 &tog_ls { layout-maps = <&layout_shift_map_us_to_jis>; };
+
 &tog_ls_on { layout-maps = <&layout_shift_map_us_to_jis>; };
+
 &tog_ls_off { layout-maps = <&layout_shift_map_us_to_jis>; };
 
 // Layout Shift Overlay - Replaces &kp behavior with custom implementation
 // This file should be included in keyboard config to override &kp behavior
 
-
 / {
     behaviors {
         // Keep the original key_press behavior for ZMK core components
+
         original_key_press: original_key_press {
             compatible = "zmk,behavior-key-press";
             #binding-cells = <1>;
@@ -337,6 +350,7 @@
         };
 
         // Override the existing &kp behavior to use our custom implementation
+
         kp: key_press {
             compatible = "zmk,behavior-layout-shift-key-press";
             #binding-cells = <1>;
@@ -349,6 +363,24 @@
             toggle-mode = "flip";
             label = "LAYOUT_SHIFT_TOGGLE";
             display-name = "Toggle Layout Shift";
+        };
+
+        comma_exclamation: comma_exclamation {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COMMA_EXCLAMATION";
+            bindings = <&kp COMMA>, <&kp EXCLAMATION>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        period_question: period_question {
+            compatible = "zmk,behavior-mod-morph";
+            label = "PERIOD_QUESTION";
+            bindings = <&kp PERIOD>, <&kp QUESTION>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
         };
     };
 };
