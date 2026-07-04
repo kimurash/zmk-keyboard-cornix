@@ -316,10 +316,10 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                 &none        &none  &none   &none  &none  &none
-&none       &none         &none         &none         &none         &none                        &none        &none  &none   &none  &none  &none
-&none       &none         &none         &none         &none         &bootloader   &trans  &to 0  &bootloader  &none  &none   &none  &none  &none
-&none       &none         &none         &none         &none         &none                        &tog_ls      &none  &kp N7  &none  &none  &none
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                 &none        &none        &none   &none  &none  &none
+&none       &none         &none         &none         &none         &none                        &none        &none        &none   &none  &none  &none
+&none       &none         &none         &none         &none         &bootloader   &trans  &to 0  &bootloader  &none        &none   &none  &none  &none
+&none       &none         &none         &none         &none         &none                        &tog_ls      &bootloader  &kp N7  &none  &none  &none
             >;
         };
     };
