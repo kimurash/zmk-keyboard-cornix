@@ -342,5 +342,13 @@
             #binding-cells = <1>;
             label = "LAYOUT_SHIFT_KEY_PRESS";
         };
+
+        tog_ls: toggle_layout_shift {
+            compatible = "zmk,behavior-layout-shift-toggle";
+            #binding-cells = <0>;
+            toggle-mode = "flip";
+            label = "LAYOUT_SHIFT_TOGGLE";
+            display-name = "Toggle Layout Shift";
+        };
     };
 };
