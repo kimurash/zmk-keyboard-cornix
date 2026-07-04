@@ -33,7 +33,7 @@
 #define KEYS_T LH1 LH0 RH0 RH1
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 15
 
-&sl { release-after-ms = <250>; };
+&sl { release-after-ms = <200>; };
 
 &lt { quick-tap-ms = <200>; };
 
@@ -197,10 +197,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp ESCAPE        &kp Q         &kp W  &kp E  &kp R      &kp T                  &kp Y      &kp U                          &kp I               &kp O             &kp P           &kp K_POWER
-&kp LEFT_CONTROL  &kp A         &kp S  &kp D  &kp LSHFT  &kp G                  &kp H      &kp J                          &kp K               &kp L             &kp MINUS       &slash_back_slash
-&kp LEFT_SHIFT    &kp Z         &kp X  &kp C  &kp V      &kp B    &none  &to 7  &kp N      &kp M                          &comma_exclamation  &period_question  &kp BACKSPACE   &kp ENTER
-&kp LEFT_COMMAND  &kp LEFT_ALT  &none  &mo 3  &mo 2      &kp TAB                &kp SPACE  &eager_tap_dance LANGUAGE_2 1  &mo 4               &kp LEFT_ARROW    &kp DOWN_ARROW  &kp RIGHT
+&kp ESCAPE        &kp Q         &kp W  &kp E  &kp R      &kp T                    &kp Y                          &kp U            &kp I               &kp O             &kp P           &kp K_POWER
+&kp LEFT_CONTROL  &kp A         &kp S  &kp D  &kp LSHFT  &kp G                    &kp H                          &kp J            &kp K               &kp L             &minus_equal    &slash_back_slash
+&kp LEFT_SHIFT    &kp Z         &kp X  &kp C  &kp V      &kp B      &none  &to 7  &kp N                          &kp M            &comma_exclamation  &period_question  &kp BACKSPACE   &kp ENTER
+&kp LEFT_COMMAND  &kp LEFT_ALT  &none  &mo 3  &lt 2 TAB  &kp SPACE                &eager_tap_dance LANGUAGE_2 1  &lt 2 BACKSPACE  &lt 4 ENTER         &kp LEFT_ARROW    &kp DOWN_ARROW  &kp RIGHT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -217,10 +217,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans                         &trans  &trans  &trans  &trans
-&trans  &none   &none   &none   &none   &trans                  &trans  &none                          &none   &none   &none   &trans
-&none   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                         &trans  &trans  &trans  &trans
-&none   &none   &none   &trans  &trans  &trans                  &none   &eager_tap_dance LANGUAGE_1 0  &trans  &none   &none   &none
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans                         &trans  &trans  &trans  &trans  &trans
+&trans  &none   &none   &none   &none   &trans                  &trans                         &none   &none   &none   &none   &trans
+&none   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                         &trans  &trans  &trans  &trans  &trans
+&none   &none   &none   &trans  &trans  &trans                  &eager_tap_dance LANGUAGE_1 0  &none   &trans  &none   &none   &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -238,10 +238,10 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&none  &kp EXCL  &kp NUMBER_7  &kp NUMBER_8  &kp DLLR      &kp PRCNT                  &kp AT         &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOUBLE_QUOTES  &kp SEMICOLON  &kp PIPE
-&none  &none     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp RBRC                   &kp HASH       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SQT            &kp DQT        &kp SQT
-&none  &none     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp BSLH   &trans  &trans  &kp AMPERSAND  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp GRAVE          &kp SQT        &none
-&none  &none     &none         &none         &trans        &trans                     &kp LESS_THAN  &kp GREATER_THAN      &kp LS(SLASH)          &none              &none          &none
+&none  &kp SLASH     &kp NUMBER_9  &kp NUMBER_8  &kp N7        &kp PERCENT                  &kp HOME  &kp PAGE_DOWN  &kp PG_UP  &kp END    &none  &none
+&none  &kp ASTERISK  &kp NUMBER_6  &kp NUMBER_5  &kp NUMBER_4  &kp CARET                    &kp LEFT  &kp DOWN       &kp UP     &kp RIGHT  &none  &none
+&none  &kp MINUS     &kp NUMBER_3  &kp NUMBER_2  &kp NUMBER_1  &none        &trans  &trans  &none     &none          &none      &none      &none  &none
+&none  &kp PLUS      &kp NUMBER_0  &kp PERIOD    &kp EQUAL     &trans                       &none     &kp DELETE     &none      &none      &none  &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -258,10 +258,10 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3   &kp F4  &kp F5                         &kp F6    &kp F7     &kp F8     &kp F9    &kp F10  &kp F11
-&trans  &kp N5  &kp N4  &kp N3   &kp N2  &kp N1                         &kp BSPC  &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &kp F12
-&trans  &kp N6  &kp N7  &kp N8   &kp N9  &kp N0         &trans  &trans  &kp TAB   &kp INS    &kp HOME   &kp END   &trans   &trans
-&none   &none   &none   &kp TAB  &trans  &kp BACKSPACE                  &trans    &trans     &kp N3     &none     &none    &none
+&trans  &none  &none        &none     &none       &none                        &none          &none             &none           &kp LEFT_BRACE        &kp RIGHT_BRACE        &none
+&trans  &none  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT                  &kp CARET      &kp AMPERSAND     &kp ASTERISK    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none
+&trans  &none  &none        &none     &none       &none        &trans  &trans  &none          &none             &none           &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans
+&none   &none  &none        &none     &trans      &none                        &kp LESS_THAN  &kp GREATER_THAN  &kp UNDERSCORE  &none                 &none                  &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -389,6 +389,15 @@
             compatible = "zmk,behavior-mod-morph";
             label = "SLASH_BACK_SLASH";
             bindings = <&kp SLASH>, <&kp BACKSLASH>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        minus_equal: minus_equal {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MINUS_EQUAL";
+            bindings = <&kp MINUS>, <&kp EQUAL>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
