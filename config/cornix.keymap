@@ -172,7 +172,7 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp ESCAPE        &kp Q         &kp W             &kp E  &kp R      &kp T                    &kp Y                          &kp U            &kp I               &kp O             &kp P           &kp K_POWER
+&kp ESCAPE        &kp Q         &kp W             &kp E  &kp R      &kp T                    &kp Y                          &kp U            &kp I               &kp O             &kp P           &kp LG(LC(Q))
 &kp LEFT_CONTROL  &kp A         &kp S             &kp D  &kp F      &kp G                    &kp H                          &kp J            &kp K               &kp L             &minus_equal    &slash_back_slash
 &kp LEFT_SHIFT    &kp Z         &kp X             &kp C  &kp V      &kp B      &none  &to 7  &kp N                          &kp M            &comma_exclamation  &period_question  &kp UP_ARROW    &kp ENTER
 &kp LEFT_COMMAND  &kp LEFT_ALT  &kp LEFT_CONTROL  &mo 3  &lt 2 TAB  &kp SPACE                &eager_tap_dance LANGUAGE_2 1  &lt 2 BACKSPACE  &mo 4               &kp LEFT_ARROW    &kp DOWN_ARROW  &kp RIGHT
@@ -291,10 +291,10 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                 &none        &none        &none   &none  &none  &none
-&none       &none         &none         &none         &none         &none                        &none        &none        &none   &none  &none  &none
-&none       &none         &none         &none         &none         &bootloader   &trans  &to 0  &bootloader  &none        &none   &none  &none  &none
-&none       &none         &none         &none         &none         &none                        &tog_ls      &bootloader  &kp N7  &none  &none  &none
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                 &none        &none        &none  &none  &none  &none
+&none       &none         &none         &none         &none         &none                        &none        &none        &none  &none  &none  &none
+&none       &none         &none         &none         &none         &bootloader   &trans  &to 0  &bootloader  &none        &none  &none  &none  &none
+&none       &none         &none         &none         &bootloader   &none                        &tog_ls      &bootloader  &none  &none  &none  &none
             >;
         };
     };
