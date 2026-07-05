@@ -234,8 +234,8 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-        Function_layer {
-            display-name = "Function";
+        Shortcut_layer {
+            display-name = "Shortcut";
 
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
@@ -252,8 +252,8 @@
             >;
         };
 
-        Navi_layer {
-            display-name = "Navi";
+        Function_layer {
+            display-name = "Function";
             bindings = <
 &none  &none  &none  &none   &none  &none                  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &none
 &none  &none  &none  &none   &none  &none                  &kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &none
