@@ -10,7 +10,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/pointing.h>
 
 // tap windows for ctl alt and gui
 
@@ -165,10 +164,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp ESCAPE        &kp Q         &kp W             &kp E  &kp R      &kp T                    &kp Y                          &kp U            &kp I               &kp O             &kp P           &kp LG(LC(Q))
-&kp LEFT_CONTROL  &kp A         &kp S             &kp D  &kp F      &kp G                    &kp H                          &kp J            &kp K               &kp L             &minus_equal    &slash_backslash
-&kp LEFT_SHIFT    &kp Z         &kp X             &kp C  &kp V      &kp B      &none  &to 7  &kp N                          &kp M            &comma_exclamation  &period_question  &kp UP_ARROW    &kp ENTER
-&kp LEFT_COMMAND  &kp LEFT_ALT  &kp LEFT_CONTROL  &mo 3  &lt 2 TAB  &kp SPACE                &eager_tap_dance LANGUAGE_2 1  &lt 2 BACKSPACE  &mo 4               &kp LEFT_ARROW    &kp DOWN_ARROW  &kp RIGHT
+&kp ESCAPE        &kp Q         &kp W             &kp E  &kp R      &kp T                      &kp Y                          &kp U            &kp I               &kp O             &kp P           &kp LG(LC(Q))
+&kp LEFT_CONTROL  &kp A         &kp S             &kp D  &kp F      &kp G                      &kp H                          &kp J            &kp K               &kp L             &minus_equal    &slash_backslash
+&kp LEFT_SHIFT    &kp Z         &kp X             &kp C  &kp V      &kp B        &none  &to 7  &kp N                          &kp M            &comma_exclamation  &period_question  &kp UP_ARROW    &kp ENTER
+&kp LEFT_COMMAND  &kp LEFT_ALT  &kp LEFT_CONTROL  &mo 5  &lt 2 TAB  &lt 3 SPACE                &eager_tap_dance LANGUAGE_2 1  &lt 2 BACKSPACE  &mo 4               &kp LEFT_ARROW    &kp DOWN_ARROW  &kp RIGHT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -226,10 +225,10 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&trans  &none   &none     &none       &none        &none                  &kp AMPERSAND  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOUBLE_QUOTES  &kp EQUAL      &kp PLUS
-&trans  &none   &kp HASH  &kp DOLLAR  &kp PERCENT  &none                  &kp CARET      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SINGLE_QUOTE   &kp SEMICOLON  &kp COLON
-&trans  &kp AT  &none     &none       &none        &none  &trans  &trans  &kp ASTERISK   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp GRAVE          &kp TILDE      &none
-&none   &none   &none     &trans      &none        &none                  &kp LESS_THAN  &kp GREATER_THAN      &kp UNDERSCORE         &kp SLASH          &kp PIPE       &kp BACKSLASH
+&trans  &none   &none     &none       &none        &none                   &kp AMPERSAND  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOUBLE_QUOTES  &kp EQUAL      &kp PLUS
+&trans  &none   &kp HASH  &kp DOLLAR  &kp PERCENT  &none                   &kp CARET      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SINGLE_QUOTE   &kp SEMICOLON  &kp COLON
+&trans  &kp AT  &none     &none       &none        &none   &trans  &trans  &kp ASTERISK   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp GRAVE          &kp TILDE      &none
+&none   &none   &none     &none       &none        &trans                  &kp LESS_THAN  &kp GREATER_THAN      &kp UNDERSCORE         &kp SLASH          &kp PIPE       &kp BACKSLASH
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -246,20 +245,20 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&none  &kp LEFT_COMMAND  &kp LG(W)             &none             &kp LG(R)     &kp LG(T)                              &none  &kp F5  &kp F6   &kp F7   &kp F8   &none
-&none  &none             &kp LG(LEFT_BRACKET)  &kp LG(UP_ARROW)  &kp LG(DOWN)  &kp LG(RIGHT_BRACKET)                  &none  &kp F1  &kp F2   &kp F3   &kp F4   &none
-&none  &none             &kp LG(LA(LEFT))      &none             &none         &kp LG(LA(RIGHT))      &trans  &trans  &none  &kp F9  &kp F10  &kp F11  &kp F12  &none
-&none  &none             &none                 &none             &kp TAB       &none                                  &none  &none   &trans   &none    &none    &none
+&none  &kp LEFT_COMMAND  &kp LG(W)             &none             &kp LG(R)     &kp LG(T)                              &none  &none  &none   &none  &none  &none
+&none  &none             &kp LG(LEFT_BRACKET)  &kp LG(UP_ARROW)  &kp LG(DOWN)  &kp LG(RIGHT_BRACKET)                  &none  &none  &none   &none  &none  &none
+&none  &none             &kp LG(LA(LEFT))      &none             &none         &kp LG(LA(RIGHT))      &trans  &trans  &none  &none  &none   &none  &none  &none
+&none  &none             &none                 &none             &kp TAB       &none                                  &none  &none  &trans  &none  &none  &none
             >;
         };
 
         Navi_layer {
             display-name = "Navi";
             bindings = <
-&none  &none  &none           &mmv MOVE_UP    &kp PAGE_UP      &kp PAGE_DOWN                   &mkp MB1  &mkp MB3  &mkp MB2  &msc SCRL_UP  &msc SCRL_DOWN  &none
-&none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_UP                    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT     &none           &none
-&none  &none  &none           &none           &none            &msc SCRL_DOWN  &trans  &trans  &trans    &trans    &none     &none         &none           &none
-&none  &none  &none           &mo 7           &trans           &trans                          &none     &none     &kp N5    &none         &none           &none
+&none  &none  &none  &none   &none  &none                  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &none
+&none  &none  &none  &none   &none  &none                  &kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &none
+&none  &none  &none  &none   &none  &none  &trans  &trans  &kp F11  &kp F12  &kp F13  &kp F14  &kp F15  &none
+&none  &none  &none  &trans  &none  &none                  &none    &none    &none    &none    &none    &none
             >;
         };
 
