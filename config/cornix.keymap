@@ -6,7 +6,6 @@
 
 #include "zmk-helpers/helper.h"
 #include "includes/cornix54.h"
-
 #include <layout_shift_kp_override.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -148,37 +147,7 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        cb_ltm {
-            bindings = <&kp ESC>;
-            key-positions = <2 4>;
-            layers = <0 1>;
-        };
-
-        cb_lm {
-            bindings = <&kp TAB>;
-            key-positions = <14 16>;
-            layers = <0 1>;
-        };
-
-        cb_enter {
-            bindings = <&kp RET>;
-            key-positions = <21 19>;
-            layers = <0 1>;
-        };
-
-        layer3 {
-            bindings = <&kp N3>;
-            key-positions = <5 6>;
-        };
-
-        layer4 {
-            bindings = <&kp N4>;
-            key-positions = <5 6>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     macros {
         eager_tap_dance: eager_tap_dance {
